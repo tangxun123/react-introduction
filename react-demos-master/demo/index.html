@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+        /*
+        *React 允许将代码封装成组件（component），然后像插入普通 HTML标签一样，在网页中插入这个组件。React.createClass 方法就用于生成一个组件类
+        * 
+         */ 
+        // var HelloMessage = React.createClass({
+        // render: function() {
+        //     return <h1>Hello {this.props.name}</h1>;
+        //   }
+        // });
+
+        // ReactDOM.render(
+        //   <HelloMessage name="zhangwei" />,
+        //   document.getElementById('example')
+        // );
+
+        /*
+        *this.props.children
+         */
+        
+      //   var NotesList = React.createClass({
+      //   render: function() {
+      //     var i  = 0;
+      //     return (
+      //       <ol>
+      //       {
+            
+      //         this.props.children.map(function (child) {
+      //           return <li key={i++}>{child}</li>;
+      //         })
+      //       }
+      //       </ol>
+      //     );
+      //   }
+      // });
+
+      // ReactDOM.render(
+      //   <NotesList >
+      //     <span>hello</span>
+      //     <span>world</span>
+      //   </NotesList>,
+      //   document.getElementById('example')
+      // );
+       
+       /*
+       *PropTypes
+        */
+       
+      // var MyTitle = React.createClass({
+      //   propTypes: {
+      //     title: React.PropTypes.string.isRequired,
+      //   },
+
+      //   render: function() {
+      //      return <h1> {this.props.title} </h1>;
+      //    }
+      // });
+      // var data = '美男子';
+      // ReactDOM.render(
+      //   <MyTitle title={data} />,
+      //   document.getElementById('example')
+      // );
+      
+      /*
+      *getDefaultProps
+       */
+    
+      // var MyTitle = React.createClass({
+      // getDefaultProps : function () {
+      //   return {
+      //     title : 'Hello World'
+      //   };
+      // },
+
+      // render: function() {
+      //    return <h1> {this.props.title} </h1>;
+      //  }
+      // });
+
+      // ReactDOM.render(
+      //   <MyTitle title='zhang'/>,
+      //   document.getElementById('example')
+      // );
+        
+      /*
+      *获取DOM节点
+       */
+    //  var MyComponent = React.createClass({
+    //   handleClick: function() {
+    //     this.refs.myTextInput.focus();
+    //   },
+    //   render: function() {
+    //     return (
+    //       <div>
+    //         <input type="text" ref="myTextInput" />
+    //         <input type="button" value="Focus the text input" onClick={this.handleClick} />
+    //       </div>
+    //     );
+    //   }
+    // });
+
+    // ReactDOM.render(
+    //   <MyComponent />,
+    //   document.getElementById('example')
+    // );
+
+    /*
+    *this.state
+     */
+    // var LikeButton = React.createClass({
+    //   getInitialState: function() {
+    //     return {liked: false};
+    //   },
+    //   handleClick: function(event) {
+    //     this.setState({liked: !this.state.liked});
+    //   },
+    //   render: function() {
+    //     var text = this.state.liked ? 'like' : 'haven\'t liked';
+    //     return (
+    //       <p onClick={this.handleClick}>
+    //         You {text} this. Click to toggle.
+    //       </p>
+    //     );
+    //   }
+    // });
+
+    // ReactDOM.render(
+    //   <LikeButton />,
+    //   document.getElementById('example')
+    // );
+    
+    
+    /*
+    *表单
+     */
+    
+    var Input = React.createClass({
+      getInitialState: function() {
+        return {value: 'Hello!'};
+      },
+      handleChange: function(event) {
+        this.setState({value: event.target.value});
+      },
+      render: function () {
+        var value = this.state.value;
+        return (
+          <div>
+            <input type="text" value={value} onChange={this.handleChange} />
+            <p>{value}</p>
+          </div>
+        );
+      }
+    });
+
+  ReactDOM.render(<Input/>, document.body);
+    </script>
+  </body>
+</html>
